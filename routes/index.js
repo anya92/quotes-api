@@ -7,9 +7,10 @@ const router = express.Router();
 const quoteController = require('../controllers/quoteController');
 const { catchErrors } = require('../helpers');
 
+const { example1, example2, example3, example4 } = require('../helpers');
 
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { example1, example2, example3, example4 });
 });
 
 router.post('/api/quotes', catchErrors(quoteController.createQuote));

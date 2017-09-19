@@ -4,7 +4,57 @@ head
   meta(charset="UTF-8")
   meta(name="viewport" content="width=device-width, initial-scale=1")
   link(href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet")
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
   title quotes API
-body(style="font-family: 'Roboto'; padding: 15px;")
-  h1 Cytaty API
-
+body(style="font-family: 'Roboto'; padding-top: 20px;")
+  .container
+    h2 Quotes API Reference
+    br
+    div(style="display: block; width: 100%; overflow-x: auto;")  
+      table.table.table-striped
+        thead
+          tr
+            th Endpoint
+            th Method
+            th Example
+            th Sample Response
+            th Description
+        tbody(style="font-size: 14px;")
+          tr
+            td /api/quotes
+            td GET
+            td https://cytaty.herokuapp.com/api/quotes
+            td
+              pre
+                code= example1
+            td Returns all quotes in database.    
+          tr
+            td /api/quotes
+            td POST
+            td https://cytaty.herokuapp.com/api/quotes
+              hr 
+              span Required params: 
+                li
+                  code Text: String
+                li
+                  code Author: String  
+            td
+              pre
+                code= example2
+            td Creates a new quote. Returns the created quote with the index.
+          tr
+            td /api/quotes/random
+            td GET
+            td https://cytaty.herokuapp.com/api/quotes/random
+            td
+              pre
+                code= example3
+            td Returns a random quote.    
+          tr
+            td /api/quotes/:id
+            td GET
+            td https://cytaty.herokuapp.com/api/quotes/3
+            td
+              pre
+                code= example4
+            td Returns a single quote with the given index.
