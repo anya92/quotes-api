@@ -5,7 +5,6 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 8080;
-const { USER_NAME, PASSWORD } = require('./config.js');
 const { notFound } = require('./helpers');
 
 const app = express();
@@ -16,9 +15,9 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const DATABASE_URL = `mongodb://${USER_NAME}:${PASSWORD}@ds139884.mlab.com:39884/quotes-api`;
+require('dotenv').config({ path: 'variables.env' })
 
-mongoose.connect(DATABASE_URL);
+mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (error) => {
   console.error(error.message);
