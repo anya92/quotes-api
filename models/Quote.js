@@ -10,9 +10,8 @@ const quoteSchema = new mongoose.Schema({
     type: String,
     required: 'Cytat musi posiadać autora. Jeśli autor jest nieznany, wpisz "Nieznany autor".'
   },
-  created: {
-    type: Date,
-    default: Date.now
+  index: {
+    type: Number
   }
 });
 
@@ -25,6 +24,5 @@ quoteSchema.statics.getRandomQuote = function() {
     } 
   ]);
 }
-
 
 module.exports = mongoose.model('Quote', quoteSchema);
