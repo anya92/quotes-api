@@ -23,6 +23,8 @@ mongoose.connection.on('error', (error) => {
 app.use(logger('dev'));
 app.use('/', routes);
 
+require('./models/Quote');
+
 app.listen(PORT, () => {
   console.log(`Server is listening at ${PORT}`);
 });
