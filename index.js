@@ -3,11 +3,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 const { notFound } = require('./helpers');
 
 const app = express();
+app.use(cors());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
