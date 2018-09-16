@@ -19,7 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 require('dotenv').config({ path: 'variables.env' })
 
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+});
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (error) => {
   console.error(error.message);
